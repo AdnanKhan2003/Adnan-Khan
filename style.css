@@ -116,12 +116,6 @@ img {
   display: block;
   max-width: 100%;
 }
-.enable-scroll {
-  overflow-y: scroll;
-}
-.stop-scroll {
-  overflow-y: hidden;
-}
 
 /* UTILITY CLASSES */
 .hidden {

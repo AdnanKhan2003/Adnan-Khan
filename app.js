@@ -45,6 +45,8 @@ const slideEle = function (entries, observer) {
 const stickyNav = function (entries) {
   const [entry] = entries;
 
+  console.log(entry);
+
   if (!entry.isIntersecting) {
     navbar.classList.add("sticky");
   } else {
@@ -59,9 +61,7 @@ const openNav = (e) => {
 
   overlay.classList.remove("d-none");
   overlay.classList.add("overlay");
-  // document.querySelector("body").style.overflowY = "hidden";
-  document.querySelector("body").classList.remove("enable-scroll");
-  document.querySelector("body").classList.add("stop-scroll");
+  document.querySelector("body").style.overflowY = "hidden";
 };
 
 // FUNCITONALITY - CLOSE NAVBAR
@@ -70,9 +70,8 @@ const closeNav = (e) => {
 
   overlay.classList.remove("overlay");
   overlay.classList.add("d-none");
-  // document.querySelector("body").style.overflowY = "scroll";
-  document.querySelector("body").classList.remove("stop-scroll");
-  document.querySelector("body").classList.add("enable-scroll");
+  document.querySelector("body").style.overflowY = "scroll";
+
   navItems.style.left = "-700px";
 };
 
@@ -101,7 +100,6 @@ mode.addEventListener("click", toggleMode);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-closeNav();
 
 // SMOOTH SCROLL ON NAVBAR
 navLinks.forEach((navLink) => {
@@ -114,8 +112,7 @@ navLinks.forEach((navLink) => {
 
       navItems.style.left = "-700px";
       // document.body.style.overflowY = "scroll";
-      document.body.classList.remove("stop-scroll");
-      document.body.classList.add("enable-scroll");
+      document.body.style.overflowY = "scroll";
       overlay.classList.remove("overlay");
       document.querySelector(`${id}`).scrollIntoView({ behavior: "smooth" });
     }
